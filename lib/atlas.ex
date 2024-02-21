@@ -3,8 +3,7 @@ defmodule Billboard.Atlas do
     build: Billboard.Trip, from: "./atlas/**/*.md", as: :trips,
     highlighters: [:makeup_elixir, :makeup_erlang]
 
-  @trips Enum.sort_by(@trips, & [&1.trip_type, &1.id])
-
+  def trips, do: @trips
   def walks, do: by_trip_type(:walks)
   def drives, do: by_trip_type(:drives)
 

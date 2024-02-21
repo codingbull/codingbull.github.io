@@ -8,3 +8,5 @@
 # Eden Park / Mt. Adams Walk
 
 A list of steps and stops
+
+![An inclined tramway](../../images/price-hill-incline.webp)
