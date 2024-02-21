@@ -1,18 +1,36 @@
 defmodule Billboard do
-  @moduledoc """
-  Documentation for `Billboard`.
-  """
+  use Phoenix.Component
+  import Phoenix.HTML
 
-  @doc """
-  Hello world.
+  def trip(assigns) do
+    ~H"""
+    <.layout>
+      <%= raw @trip.body %>
+    </.layout>
+    """
+  end
 
-  ## Examples
+  def index(assigns) do
+    ~H"""
+    <.layout>
+      <h1>Scott Went There</h1>
+      <h2>Trips</h2>
+      <ul>
+        <li :for={trip <- @trips}>
+          <a href={trip.path}> <%= trip.title %> </a>
+        </li>
+      </ul>
+    </.layout>
+    """
+  end
 
-      iex> Billboard.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def layout(assigns) do
+    ~H"""
+    <html>
+      <body>
+        <%= render_slot(@inner_block) %>
+      </body>
+    </html>
+    """
   end
 end
